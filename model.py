@@ -11,11 +11,12 @@ X = dataset.iloc[:, 2:-1].values
 y = dataset.iloc[:, -1].values
 y = y.reshape(-1,1)
 
-# Encoding the Dependent Variable
+# Encoding the Independent Variable
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 X[:,0] = le.fit_transform(X[:,0])
 
+# Splitting data into test set and training set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
 
